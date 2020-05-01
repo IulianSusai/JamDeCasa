@@ -120,13 +120,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459423488044563157}
-  m_LocalRotation: {x: 0.16925657, y: 0.8286024, z: -0.34321833, w: 0.40862152}
-  m_LocalPosition: {x: -19.5, y: 22.3, z: 15}
+  m_LocalRotation: {x: -0.08281564, y: 0.9338049, z: -0.3162489, w: 0.14538437}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1459423488776201134}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45, y: 127.5, z: 0}
+  m_LocalEulerAnglesHint: {x: 34.510002, y: 156.854, z: -17.415}
 --- !u!108 &1459423488044563158
 Light:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -184,7 +184,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 9.621835e+31}
+  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 1.6348353e-11}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

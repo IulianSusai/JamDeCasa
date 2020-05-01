@@ -52,8 +52,8 @@ MonoBehaviour:
   dieShakeAmount: 0.2
   dieDecreaseFactor: 1
   levels:
-  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
-  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
+  - {fileID: -927285088952910511, guid: f37cad274c33f2e4ca88f1b3afc8a730, type: 3}
+  - {fileID: -927285088952910511, guid: f37cad274c33f2e4ca88f1b3afc8a730, type: 3}
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}

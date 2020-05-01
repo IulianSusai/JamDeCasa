@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector] public PlayerState state;
 
 	private Character ch;
+
+	public Transform ChTransform {
+		get {
+			return ch == null ? null : ch.transform;
+		}
+	}
 	
 	private void RegisterEvents() {
 		ActionsController.Instance.onLevelLoaded += OnLevelLoaded;
@@ -43,10 +49,12 @@ public class PlayerController : MonoBehaviour
 
 	private void OnLevelWin() {
 		state = PlayerState.InFinishAnim;
+		ch.OnLevelWin();
 	}
 
 	private void OnLevelDie() {
 		state = PlayerState.Dead;
+		ch.OnLevelDie();
 	}
 
 	private void OnLevelStart() {

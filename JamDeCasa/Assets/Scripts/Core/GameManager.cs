@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	[Header("Design Info")]
 	public float levelMaxTime;
 	public float levelSpeedUpMultiplier;
+	public float timeObjectPushForce = 10f;
 	public float winPageDelay;
 	public float gameOverPageDelay;
 

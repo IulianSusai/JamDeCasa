@@ -32,6 +32,7 @@ public class Character : MonoBehaviour
 	public void SetTimeObject(GameObject _timeObject) {
 		timeObject = _timeObject;
 		timeObject.transform.SetParent(timeObjectContainer);
+		timeObject.transform.localEulerAngles = Vector3.zero;
 		timeObject.transform.localPosition = Vector3.zero;
 		animator.SetBool("IsHoldingCrate", true);
 	}
@@ -39,6 +40,23 @@ public class Character : MonoBehaviour
 	public void DropTimeObject() {
 		timeObject = null;
 		animator.SetBool("IsHoldingCrate", false);
+	}
+
+	public void OnLevelDie() {
+		SetTimeObjectFree();
+		animator.SetTrigger("LevelDie");
+	}
+
+	public void OnLevelWin() {
+		animator.SetTrigger("Win");
+	}
+
+	private void SetTimeObjectFree() {
+		if (timeObject != null) {
+			timeObject.transform.SetParent(GameManager.Instance.currentLevel.transform);
+			Rigidbody tRb = timeObject.AddComponent<Rigidbody>();
+			tRb.AddForce(transform.forward * GameManager.Instance.timeObjectPushForce, ForceMode.Impulse);
+		}
 	}
 
 	private void Update() {
@@ -79,6 +97,8 @@ public class Character : MonoBehaviour
 	private void OnTriggerEnter(Collider other) {
 		if (PlayerController.Instance.state == PlayerState.Playing) {
 			if (IsHolding && other.CompareTag("Finish")) {
+				FinishObject fo = other.GetComponent<FinishObject>();
+				fo.SetTimeObject(timeObject);
 				ActionsController.Instance.SendOnLevelWin();
 			}
 		}

@@ -12,4 +12,11 @@ public class UIManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
+	[HideInInspector] public MenuPage currentPage;
+	public MenuPage mainPage;
+	public MenuPage inGamePage;
+	public MenuPage winPage;
+	public MenuPage gameOverPage;
+
 }

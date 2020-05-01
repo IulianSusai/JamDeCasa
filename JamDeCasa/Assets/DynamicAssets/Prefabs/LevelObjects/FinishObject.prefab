@@ -231,6 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8695859875176280824}
+  - component: {fileID: 7474322415640828505}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -258,6 +259,19 @@ Transform:
   m_Father: {fileID: 2063930812821147613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7474322415640828505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122252067134499842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.0839326, z: 0.5126359}
+  m_Center: {x: 0, y: 0.9, z: 0.000000029802322}
 --- !u!1 &1190820550470968068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,12 +1344,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2063930812821147613}
   - component: {fileID: 7067995496621934570}
-  - component: {fileID: 1886961629}
   - component: {fileID: 4603104171032529837}
   - component: {fileID: 5192322135266607613}
   m_Layer: 0
-  m_Name: Character
-  m_TagString: Untagged
+  m_Name: FinishObject
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1374,22 +1387,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1886961629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613728991510041933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84bda6cec8eef44c9ccbda8ac345a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeObjectContainer: {fileID: 4139030259452818461}
-  moveSpeed: 5
-  turnSmoothTime: 0.2
-  speedSmoothTime: 0.1
 --- !u!65 &4603104171032529837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1398,11 +1395,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8613728991510041933}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.0839326, z: 0.5126359}
-  m_Center: {x: 0, y: 0.9, z: 0.000000029802322}
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0.000000029802322}
 --- !u!54 &5192322135266607613
 Rigidbody:
   m_ObjectHideFlags: 0

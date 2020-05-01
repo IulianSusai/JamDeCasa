@@ -43,5 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72aa79d24e229d24ab41aecd5a93c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelMaxTime: 60
+  levelSpeedUpMultiplier: 5
+  winPageDelay: 1
+  gameOverPageDelay: 1
   levels:
+  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
+  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
+  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
+  - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}

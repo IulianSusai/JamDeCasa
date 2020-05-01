@@ -21,9 +21,15 @@ public class ActionsController
 
 
 	public Action onLevelLoaded;
+	public Action onLevelStart;
 	public Action onLevelDie;
 	public Action onLevelWin;
-	public Action onPlayerDie;
+	public Action<GameObject> onPlayerDie;
+
+
+	public void SendOnLevelStart() {
+		onLevelStart?.Invoke();
+	}
 
 	public void SendOnLevelLoaded() {
 		onLevelLoaded?.Invoke();
@@ -37,8 +43,8 @@ public class ActionsController
 		onLevelWin?.Invoke();
 	}
 
-	public void SendOnPlayerDie() {
-		onPlayerDie?.Invoke();
+	public void SendOnPlayerDie(GameObject _timeObj) {
+		onPlayerDie?.Invoke(_timeObj);
 	}
 
 }

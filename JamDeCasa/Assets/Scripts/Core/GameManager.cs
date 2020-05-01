@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
 	public float winPageDelay;
 	public float gameOverPageDelay;
 
+	public float shakeDuration = 1f;
+	public float dieShakeAmount = 0.7f;
+	public float dieDecreaseFactor = 1.0f;
+
+
+
 	[Header("Levels")]
 	[SerializeField] private List<Level> levels;
 	public Level currentLevel { private set; get; }

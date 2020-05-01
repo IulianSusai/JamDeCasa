@@ -22,7 +22,6 @@ public class FinishObject : MonoBehaviour
 	}
 
 	public void SetTimeObject(GameObject _timeObj) {
-		Debug.LogError("HEERE");
 		_timeObj.transform.SetParent(timeObjectPosition.transform);
 		_timeObj.transform.localPosition = Vector3.zero;
 		_timeObj.transform.localRotation = Quaternion.identity;

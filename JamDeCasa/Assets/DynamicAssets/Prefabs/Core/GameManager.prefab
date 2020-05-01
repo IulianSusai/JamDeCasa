@@ -45,8 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMaxTime: 60
   levelSpeedUpMultiplier: 5
+  timeObjectPushForce: 10
   winPageDelay: 1
   gameOverPageDelay: 1
+  shakeDuration: 0.2
+  dieShakeAmount: 0.2
+  dieDecreaseFactor: 1
   levels:
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}
   - {fileID: -927285088952910511, guid: 2bd9c1352db51d4499e87a3adbc7084a, type: 3}

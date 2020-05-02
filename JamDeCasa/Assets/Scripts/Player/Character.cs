@@ -103,6 +103,12 @@ public class Character : MonoBehaviour
 				fo.SetTimeObject(timeObject);
 				ActionsController.Instance.SendOnLevelWin();
 			}
+			if (other.CompareTag("ExplodeTrigger")) {
+				ExplosionTriggers et = other.GetComponent<ExplosionTriggers>();
+				if (et != null) {
+					et.Explode();
+				}
+			}
 		}
 	}
 

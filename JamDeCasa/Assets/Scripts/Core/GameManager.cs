@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
 	public float dieShakeAmount = 0.7f;
 	public float dieDecreaseFactor = 1.0f;
 
+	public float explosionPower;
+	public float explosionUpPower;
+	public float explosionRadius;
+
 
 
 	[Header("Levels")]

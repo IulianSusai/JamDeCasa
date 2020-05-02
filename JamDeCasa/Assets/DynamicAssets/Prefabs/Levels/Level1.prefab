@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768d529cd9ecb8a42890b2ad82897f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStartPosition: {x: -12, y: 0, z: 12}
+  playerStartPosition: {x: -12, y: 0.5, z: 12}
   playerStartRotation: {x: 0, y: 180, z: 0}
   timeObjectSpawnPosition:
   - {fileID: 2408335583559619966}

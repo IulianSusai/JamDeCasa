@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 	[Header("Levels")]
 	[SerializeField] private List<Level> levels;
 	public Level currentLevel { private set; get; }
-	private int currentLevelIndex;
+	public int currentLevelIndex { private set; get; }
 
 	private bool canContinue;
 

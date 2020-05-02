@@ -86,8 +86,10 @@ public class Character : MonoBehaviour
 	private void OnCollisionEnter(Collision collision) {
 		if (PlayerController.Instance.state == PlayerState.Playing) {
 			if (collision.gameObject.CompareTag("Obstacle")) {
+				rb.isKinematic = true;
 				ActionsController.Instance.SendOnPlayerDie(timeObject);
 				DropTimeObject();
+				rb.isKinematic = false;
 			} else if (!IsHolding && collision.gameObject.CompareTag("TimeDog")) {
 				SetTimeObject(collision.gameObject);
 			}

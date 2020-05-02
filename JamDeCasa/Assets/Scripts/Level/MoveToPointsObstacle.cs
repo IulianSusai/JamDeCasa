@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveToPointsObstacle : MonoBehaviour
 {
-
+	[SerializeField] private float moveStartDelay;
 	[SerializeField] private float moveToPointTime;
 	[SerializeField] private float moveToNextPointDelay;
 	[SerializeField] private AnimationCurve moveToPointCurve;
@@ -37,7 +37,7 @@ public class MoveToPointsObstacle : MonoBehaviour
 	}
 
 	private void OnLevelStarted() {
-		StartMoving();
+		Invoke("StartMoving", moveStartDelay);
 	}
 
 	private void OnLevelDie() {

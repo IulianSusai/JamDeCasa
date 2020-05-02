@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 	private bool canContinue;
 
 	private void Start() {
+		Cursor.visible = false;
 		currentLevelIndex = 0;
 		UIManager.Instance.mainPage.OpenPage();
 	}

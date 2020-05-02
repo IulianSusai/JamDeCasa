@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMaxTime: 300
-  levelSpeedUpMultiplier: 15
+  levelSpeedUpMultiplier: 20
   timeObjectPushForce: 10
   winPageDelay: 0.5
   gameOverPageDelay: 0.5
@@ -63,3 +63,5 @@ MonoBehaviour:
   - {fileID: -927285088952910511, guid: 9eca0a3aed33e49498de1e177b0c9343, type: 3}
   - {fileID: -927285088952910511, guid: 7e49a6ed5a9ace94eb76a114935e7185, type: 3}
   - {fileID: -927285088952910511, guid: d0460a352399a8a42b840c7f84c17ed9, type: 3}
+  - {fileID: -927285088952910511, guid: 105e6d22473e8ec4884fd4b5f50ca0d9, type: 3}
+  - {fileID: -927285088952910511, guid: ec8b99e7e9674b8458df9b9e8d8a8843, type: 3}

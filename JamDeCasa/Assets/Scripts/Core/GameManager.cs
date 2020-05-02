@@ -37,8 +37,13 @@ public class GameManager : MonoBehaviour
 	public Level currentLevel { private set; get; }
 	public int currentLevelIndex { private set; get; }
 
-	private bool canContinue;
+	public int uiCurrentLevel {
+		get {
+			return currentLevelIndex % levels.Count;
+		}
+	}
 
+	private bool canContinue;
 
 	private void Start() {
 		currentLevelIndex = 0;

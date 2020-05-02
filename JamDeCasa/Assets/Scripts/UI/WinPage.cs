@@ -10,7 +10,7 @@ public class WinPage : MenuPage
 
 	public override void OpenPage() {
 		base.OpenPage();
-		winPageInfo.text = "Nivelul " + (GameManager.Instance.currentLevelIndex).ToString() + " terminat!";
+		winPageInfo.text = "Nivelul " + (GameManager.Instance.uiCurrentLevel).ToString() + " terminat!";
 	}
 
 }

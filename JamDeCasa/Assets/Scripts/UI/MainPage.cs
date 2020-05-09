@@ -13,7 +13,7 @@ public class MainPage : MenuPage
 		GameManager.Instance.LoadLevel();
 		TimeSpan timeSpan = TimeSpan.FromSeconds(GameManager.Instance.currentLevel.LevelTime);
 		time.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
-		UIManager.Instance.SetJoystickActive(true);
+		//UIManager.Instance.SetJoystickActive(true);
 	}
 
 	private void Update() {

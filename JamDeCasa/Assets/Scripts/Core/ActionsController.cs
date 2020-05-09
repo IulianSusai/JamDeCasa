@@ -19,6 +19,8 @@ public class ActionsController
 		}
 	}
 
+	#region Game_Flow
+
 
 	public Action onLevelLoaded;
 	public Action onLevelStart;
@@ -46,5 +48,15 @@ public class ActionsController
 	public void SendOnPlayerDie(GameObject _timeObj) {
 		onPlayerDie?.Invoke(_timeObj);
 	}
+	#endregion
+
+	#region Input
+	public Action<PlayerInputButtonType, bool> onInputButton;
+
+	public void SendOnInputButton(PlayerInputButtonType _button, bool _pressed) {
+		onInputButton?.Invoke(_button, _pressed);
+	}
+
+	#endregion
 
 }

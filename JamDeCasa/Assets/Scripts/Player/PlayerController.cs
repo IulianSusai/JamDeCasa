@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Character chPrefab;
 
 	[HideInInspector] public PlayerState state;
+	public PlayerInput input { private set; get; }
 
 	private Character ch;
 
@@ -32,9 +33,19 @@ public class PlayerController : MonoBehaviour
 	public Vector3 Right { private set; get; }
 
 	private void Start() {
+		SetForwardRight();
+		input = new PlayerInput();
+	}
+
+	public void SetForwardRight() {
 		Forward = new Vector3(cam.transform.forward.x, 0f, cam.transform.forward.z);
 		Forward = Vector3.Normalize(Forward);
 		Right = Quaternion.Euler(new Vector3(0, 90, 0)) * Forward;
+	}
+
+	public void SetDefault() {
+		Forward = Vector3.forward;
+		Right = Vector3.right;
 	}
 
 	private void RegisterEvents() {

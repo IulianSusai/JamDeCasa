@@ -42,7 +42,7 @@ public class InGamePage : MenuPage
 	}
 
 	private void HideJoystick() {
-		UIManager.Instance.SetJoystickActive(false);
+		//UIManager.Instance.SetJoystickActive(false);
 	}
 
 

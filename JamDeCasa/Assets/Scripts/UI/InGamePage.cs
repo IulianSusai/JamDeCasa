@@ -23,11 +23,15 @@ public class InGamePage : MenuPage
 	protected override void RegisterEvents() {
 		base.RegisterEvents();
 		ActionsController.Instance.onPlayerDie += OnPlayerDie;
+		ActionsController.Instance.onLevelDie += HideJoystick;
+		ActionsController.Instance.onLevelWin += HideJoystick;
 	}
 
 	protected override void UnregisterEvents() {
 		base.UnregisterEvents();
-		ActionsController.Instance.onPlayerDie += OnPlayerDie;
+		ActionsController.Instance.onPlayerDie -= OnPlayerDie;
+		ActionsController.Instance.onLevelDie -= HideJoystick;
+		ActionsController.Instance.onLevelWin -= HideJoystick;
 	}
 
 	private void OnPlayerDie(GameObject _timeObj) {
@@ -35,6 +39,10 @@ public class InGamePage : MenuPage
 			speedUpImages[i].gameObject.SetActive(true);
 		}
 		speedUpAnim.Play();
+	}
+
+	private void HideJoystick() {
+		UIManager.Instance.SetJoystickActive(false);
 	}
 
 

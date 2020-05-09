@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class WinPage : MenuPage
 {
@@ -11,6 +12,12 @@ public class WinPage : MenuPage
 	public override void OpenPage() {
 		base.OpenPage();
 		winPageInfo.text = "Nivelul " + (GameManager.Instance.uiCurrentLevel).ToString() + " terminat!";
+	}
+
+	private void Update() {
+		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
+			UIManager.Instance.mainPage.OpenPage();
+		}
 	}
 
 }

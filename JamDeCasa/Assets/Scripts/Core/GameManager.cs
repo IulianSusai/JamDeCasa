@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
 	private bool canContinue;
 
 	private void Start() {
-		Cursor.visible = false;
 		currentLevelIndex = 0;
 		UIManager.Instance.mainPage.OpenPage();
 	}
@@ -106,7 +105,7 @@ public class GameManager : MonoBehaviour
 			UIManager.Instance.mainPage.OpenPage();
 		} else if (!canContinue && PlayerController.Instance.state == PlayerState.Waiting) {
 			if (Input.anyKeyDown) {
-				ActionsController.Instance.SendOnLevelStart();
+				//ActionsController.Instance.SendOnLevelStart();
 			}
 		}
 	}

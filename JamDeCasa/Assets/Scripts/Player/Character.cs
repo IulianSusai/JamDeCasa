@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
 
 	private void Update() {
 		if(PlayerController.Instance.state == PlayerState.Playing) {
-			Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+			Vector2 input = new Vector2(UIManager.Instance.joystick.Horizontal, UIManager.Instance.joystick.Vertical);
 			Vector2 inputDir = input.normalized;
 
 			if (inputDir != Vector2.zero) {

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+	[SerializeField] private Camera cam;
 	[SerializeField] private GameObject timeObjectPrefab;
 	[SerializeField] private Character chPrefab;
 
@@ -26,7 +27,16 @@ public class PlayerController : MonoBehaviour
 			return ch == null ? null : ch.transform;
 		}
 	}
-	
+
+	public Vector3 Forward { private set; get; }
+	public Vector3 Right { private set; get; }
+
+	private void Start() {
+		Forward = new Vector3(cam.transform.forward.x, 0f, cam.transform.forward.z);
+		Forward = Vector3.Normalize(Forward);
+		Right = Quaternion.Euler(new Vector3(0, 90, 0)) * Forward;
+	}
+
 	private void RegisterEvents() {
 		ActionsController.Instance.onLevelLoaded += OnLevelLoaded;
 		ActionsController.Instance.onLevelWin += OnLevelWin;

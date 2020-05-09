@@ -184,7 +184,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 1.6348353e-11}
+  m_BoundingSphereOverride: {x: 7.09e-43, y: -0.0000000014323582, z: 7.09e-43, w: 3.9e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3fd2e8aaed0c14b864be487dced6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1459423487791064383}
   timeObjectPrefab: {fileID: 5327488217625856102, guid: ecf6043c8d73443419766035c778a2c1,
     type: 3}
   chPrefab: {fileID: 1886961629, guid: f17b44a4e26f36e4fb277bcfe37dde3b, type: 3}

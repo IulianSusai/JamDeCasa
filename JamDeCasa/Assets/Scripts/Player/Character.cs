@@ -61,11 +61,11 @@ public class Character : MonoBehaviour
 
 	private void Update() {
 		if(PlayerController.Instance.state == PlayerState.Playing) {
-			Vector2 input = new Vector2(UIManager.Instance.joystick.Horizontal, UIManager.Instance.joystick.Vertical);
-			Vector2 inputDir = input.normalized;
+			Vector3 input = PlayerController.Instance.Right * UIManager.Instance.joystick.Horizontal + PlayerController.Instance.Forward * UIManager.Instance.joystick.Vertical;
+			Vector3 inputDir = input.normalized;
 
-			if (inputDir != Vector2.zero) {
-				float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+			if (inputDir != Vector3.zero) {
+				float targetRotation = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg;
 				transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
 			}
 

@@ -2021,11 +2021,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1459423487791064383, guid: 06459910a79aa7c41bb8e31a0c2e4152,
-        type: 3}
-      propertyPath: orthographic size
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 1459423488776201133, guid: 06459910a79aa7c41bb8e31a0c2e4152,
         type: 3}
       propertyPath: m_Name

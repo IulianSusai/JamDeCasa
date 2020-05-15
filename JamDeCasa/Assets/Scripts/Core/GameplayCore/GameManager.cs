@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	private void Awake() {
 		if(Instance == null) {
 			Instance = this;
+			SetBMSettings();
 			RegisterEvents();
 		} else {
 			Destroy(gameObject);
@@ -48,6 +49,14 @@ public class GameManager : MonoBehaviour
 	private void Start() {
 		currentLevelIndex = 0;
 		UIManager.Instance.mainPage.OpenPage();
+	}
+
+	private void SetBMSettings() {
+		Debug.unityLogger.logEnabled = BMCore.Settings.enableConsoleLogs;
+		if (BMCore.Settings.enableFpsDisplay) {
+			FPSDisplay fpsDisplay = gameObject.AddComponent<FPSDisplay>();
+		}
+		Time.timeScale = BMCore.Settings.gameSpeed;
 	}
 
 	private void RegisterEvents() {

@@ -11,4 +11,16 @@ public class BitMindEditor : MonoBehaviour
 		PlayerPrefs.DeleteAll();
 	}
 
+	[MenuItem("BitMind/Settings/GameSettings")]
+	public static void SelectGameSettings() {
+		BMSettings settings = Resources.Load<BMSettings>("Settings/BMSettings");
+		Selection.activeObject = settings;
+	}
+
+	[MenuItem("BitMind/Settings/LevelsSettings")]
+	public static void SelectLevelsSettings() {
+		BMLevels settings = Resources.Load<BMLevels>("Settings/BMLevels");
+		Selection.activeObject = settings;
+	}
+
 }

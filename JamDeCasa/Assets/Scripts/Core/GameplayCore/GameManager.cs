@@ -108,15 +108,4 @@ public class GameManager : MonoBehaviour
 		canContinue = true;
 		UIManager.Instance.gameOverPage.OpenPage();
 	}
-
-	private void Update() {
-		if(canContinue && Input.GetKeyDown(KeyCode.Space)) {
-			UIManager.Instance.mainPage.OpenPage();
-		} else if (!canContinue && PlayerController.Instance.state == PlayerState.Waiting) {
-			if (Input.anyKeyDown) {
-				//ActionsController.Instance.SendOnLevelStart();
-			}
-		}
-	}
-
 }

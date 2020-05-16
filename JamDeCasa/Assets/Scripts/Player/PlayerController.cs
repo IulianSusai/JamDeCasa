@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
 	private Character ch;
 
+	public int CurrentLevelDies { private set; get; }
+
 	public Transform ChTransform {
 		get {
 			return ch == null ? null : ch.transform;
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
 		ch.gameObject.SetActive(true);
 		ch.SetTimeObject(Instantiate(timeObjectPrefab));
 		state = PlayerState.Waiting;
+		CurrentLevelDies = 0;
 	}
 
 	private void OnLevelWin() {
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
 	private void OnPlayerDie(GameObject _timeObj) {
 		ch.transform.position = GameManager.Instance.levelManager.currentLevel.playerStartPosition;
 		ch.transform.eulerAngles = GameManager.Instance.levelManager.currentLevel.playerStartRotation;
+		CurrentLevelDies++;
 	}
 
 	private void OnDestroy() {

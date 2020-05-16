@@ -9,8 +9,8 @@ public class LevelManager
 			return (levelIndex + 1).ToString();
 		}
 	}
+	public int levelIndex { private set; get; }
 	public Level currentLevel { private set; get; }
-	private int levelIndex;
 
 	public void LoadLevel() {
 		Level levelPrefab = BMCore.Settings.levelData.GetLevel(levelIndex);

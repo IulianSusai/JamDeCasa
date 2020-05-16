@@ -16,12 +16,7 @@ public class BMLevelSettingsDrawer : PropertyDrawer
 		if(string.IsNullOrEmpty(levelName) && levelOptions.Contains(levelName)) {
 			selectedLeveIndex = levelOptions.IndexOf(levelName);	
 		}
-
-		GUILayout.BeginHorizontal();
-		GUILayout.Space(property.depth * 20f);
-		selectedLeveIndex = EditorGUI.Popup(position, property.displayName, selectedLeveIndex, levelOptions.ToArray());
-		property.stringValue = levelOptions[selectedLeveIndex];
-		GUILayout.EndHorizontal();
+		SetVisual(position, property, selectedLeveIndex, levelOptions.ToArray());
 	}
 
 	void GetOptions() {
@@ -31,5 +26,10 @@ public class BMLevelSettingsDrawer : PropertyDrawer
 				levelOptions.Add(level.levelSettingsName);
 			}
 		}
+	}
+
+	void SetVisual( Rect position, SerializedProperty property, int selectedLeveIndex, string[] levelOptions ) {
+		selectedLeveIndex = EditorGUI.Popup(position, property.displayName, selectedLeveIndex, levelOptions);
+		property.stringValue = levelOptions[selectedLeveIndex];
 	}
 }

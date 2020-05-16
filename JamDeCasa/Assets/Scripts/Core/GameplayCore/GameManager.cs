@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void OnLevelWin() {
+		CheckLevelStars();
 		levelManager.SetupNextLevel();
 		Invoke("AfterLevelWinDelay", BMCore.Settings.cohort.gameplay.winPageDelay);
 	}
@@ -82,4 +83,28 @@ public class GameManager : MonoBehaviour
 	private void AfterLevelDieDelay() {
 		UIManager.Instance.gameOverPage.OpenPage();
 	}
+
+	private void CheckLevelStars() {
+		int currentLevel = levelManager.levelIndex;
+		int currentStars = ConvertDiesToStars();
+		int prevStars = UserData.Instance.savedData.GetLevelStars(currentLevel);
+		if(currentStars > prevStars) {
+			UserData.Instance.savedData.SetLevelStars(currentLevel, currentStars);
+			int diff = currentStars - prevStars;
+			UserData.Instance.savedData.CurrentStars += diff;
+		}
+		Debug.LogError("Stars: " + UserData.Instance.savedData.CurrentStars);
+	}
+
+	private int ConvertDiesToStars() {
+		int currentDies = PlayerController.Instance.CurrentLevelDies;
+		List<StarConditions> conditions = BMCore.Settings.cohort.gameplay.starConditions;
+		foreach (StarConditions sc in conditions) {
+			if (currentDies <= sc.maxDies) {
+				return sc.stars;
+			}
+		}
+		return 0;
+	}
+
 }

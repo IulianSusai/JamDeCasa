@@ -34,4 +34,12 @@ public class CohortGameplay
 	public float explosionPower;
 	public float explosionUpPower;
 	public float explosionRadius;
+	public List<StarConditions> starConditions;
+}
+
+[Serializable]
+public struct StarConditions
+{
+	public int maxDies;
+	public int stars;
 }

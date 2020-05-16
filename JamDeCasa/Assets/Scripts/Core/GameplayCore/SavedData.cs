@@ -44,6 +44,14 @@ public class SavedData
 		}
 	}
 
+	public void SetLevelStars(int _level, int _stars) {
+		PlayerPrefs.SetInt("Level" + _level, _stars);
+	}
+
+	public int GetLevelStars(int _level) {
+		return GetSafeInt("Level" + _level);
+	}
+
 
 	public void Load() {
 		cohortName = GetSafeString(COHORT_NAME_KEY);

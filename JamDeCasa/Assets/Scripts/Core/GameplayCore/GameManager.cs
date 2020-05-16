@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { private set; get; }
 
 	private void Awake() {
-		if(Instance == null) {
+		if (Instance == null) {
 			Instance = this;
 			SetBMSettings();
 			RegisterEvents();
@@ -15,23 +15,6 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
-
-	[Header("Design Info")]
-	public float levelMaxTime;
-	public float levelSpeedUpMultiplier;
-	public float timeObjectPushForce = 10f;
-	public float winPageDelay;
-	public float gameOverPageDelay;
-
-	public float shakeDuration = 1f;
-	public float dieShakeAmount = 0.7f;
-	public float dieDecreaseFactor = 1.0f;
-
-	public float explosionPower;
-	public float explosionUpPower;
-	public float explosionRadius;
-
-
 
 	[Header("Levels")]
 	[SerializeField] private List<Level> levels;
@@ -44,9 +27,8 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private bool canContinue;
-
 	private void Start() {
+		SetBMCohort();
 		currentLevelIndex = 0;
 		UIManager.Instance.mainPage.OpenPage();
 	}
@@ -57,6 +39,13 @@ public class GameManager : MonoBehaviour
 			FPSDisplay fpsDisplay = gameObject.AddComponent<FPSDisplay>();
 		}
 		Time.timeScale = BMCore.Settings.gameSpeed;
+	}
+
+	private void SetBMCohort() {
+		bool hasEmptyCohort = string.IsNullOrEmpty(UserData.Instance.savedData.CohortName);
+		BMCohortData cohort = hasEmptyCohort ? BMCore.Cohorts.GetRandomAvailableCohort() : BMCore.Cohorts.GetCohort(UserData.Instance.savedData.CohortName);
+		UserData.Instance.savedData.CohortName = cohort.cohortName;
+		BMCore.Settings.SetCohort(cohort);
 	}
 
 	private void RegisterEvents() {
@@ -70,7 +59,6 @@ public class GameManager : MonoBehaviour
 			Destroy(currentLevel.gameObject);
 		}
 		currentLevel = Instantiate(levels[currentLevelIndex % levels.Count]);
-		canContinue = false;
 		ActionsController.Instance.SendOnLevelLoaded();
 	}
 
@@ -91,21 +79,19 @@ public class GameManager : MonoBehaviour
 
 	private void OnLevelWin() {
 		currentLevelIndex++;
-		Invoke("AfterLevelWinDelay", winPageDelay);
+		Invoke("AfterLevelWinDelay", BMCore.Settings.cohort.gameplay.winPageDelay);
 	}
 
 	private void OnLevelDie() {
 		currentLevelIndex = Mathf.Max(0, currentLevelIndex - 1);
-		Invoke("AfterLevelDieDelay", gameOverPageDelay);
+		Invoke("AfterLevelDieDelay", BMCore.Settings.cohort.gameplay.gameOverPageDelay);
 	}
 
 	private void AfterLevelWinDelay() {
-		canContinue = true;
 		UIManager.Instance.winPage.OpenPage();
 	}
 
 	private void AfterLevelDieDelay() {
-		canContinue = true;
 		UIManager.Instance.gameOverPage.OpenPage();
 	}
 }

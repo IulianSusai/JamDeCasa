@@ -20,5 +20,4 @@ public class UserData
 		savedData = new SavedData();
 		savedData.Load();
 	}
-
 }

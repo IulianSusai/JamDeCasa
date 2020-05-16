@@ -55,7 +55,7 @@ public class Character : MonoBehaviour
 		if (timeObject != null) {
 			timeObject.transform.SetParent(GameManager.Instance.currentLevel.transform);
 			Rigidbody tRb = timeObject.AddComponent<Rigidbody>();
-			tRb.AddForce(transform.forward * GameManager.Instance.timeObjectPushForce, ForceMode.Impulse);
+			tRb.AddForce(transform.forward * BMCore.Settings.cohort.gameplay.timeObjectPushForce, ForceMode.Impulse);
 		}
 	}
 

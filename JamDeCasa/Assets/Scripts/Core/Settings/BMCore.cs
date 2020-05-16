@@ -6,6 +6,7 @@ public static class BMCore
 {
 	private static BMSettings settings;
 	private static BMLevels levels;
+	private static BMCohort cohorts;
 
 	public static BMSettings Settings {
 		get {
@@ -25,6 +26,13 @@ public static class BMCore
 		}
 	}
 
-
+	public static BMCohort Cohorts {
+		get {
+			if(cohorts == null) {
+				cohorts = Resources.Load<BMCohort>("Settings/BMCohort");
+			}
+			return cohorts;
+		}
+	}
 
 }

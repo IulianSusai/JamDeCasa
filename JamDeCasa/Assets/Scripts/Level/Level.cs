@@ -26,7 +26,7 @@ public class Level : MonoBehaviour
 	}
 
 	private void OnLevelLoaded() {
-		LevelTime = GameManager.Instance.levelMaxTime;
+		LevelTime = BMCore.Settings.cohort.gameplay.levelMaxTime;
 	}
 
 	private void OnLevelStart() {
@@ -39,7 +39,7 @@ public class Level : MonoBehaviour
 			_timeObject.transform.SetParent(transform);
 			_timeObject.transform.position = timeObjectSpawnPosition[Random.Range(0, timeObjectSpawnPosition.Count)].position;
 		}
-		timeMultiplier = GameManager.Instance.levelSpeedUpMultiplier;
+		timeMultiplier = BMCore.Settings.cohort.gameplay.levelSpeedUpMultiplier;
 	}
 
 	private void Update() {

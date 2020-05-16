@@ -16,20 +16,20 @@ public class CameraShake : MonoBehaviour
 
 	private void OnPlayerDie(GameObject _timeObj) {
 		inShake = true;
-		shakeDuration = GameManager.Instance.shakeDuration;
+		shakeDuration = BMCore.Settings.cohort.gameplay.shakeDuration;
 	}
 
 	private void OnLevelDie() {
 		inShake = true;
-		shakeDuration = GameManager.Instance.shakeDuration;
+		shakeDuration = BMCore.Settings.cohort.gameplay.shakeDuration;
 	}
 	
 
 	private void Update() {
 		if (inShake) {
 			if (shakeDuration > 0) {
-				transform.localPosition = originalPos + Random.insideUnitSphere * GameManager.Instance.dieShakeAmount;
-				shakeDuration -= Time.deltaTime * GameManager.Instance.dieDecreaseFactor;
+				transform.localPosition = originalPos + Random.insideUnitSphere * BMCore.Settings.cohort.gameplay.dieShakeAmount;
+				shakeDuration -= Time.deltaTime * BMCore.Settings.cohort.gameplay.dieDecreaseFactor;
 			} else {
 				shakeDuration = 0f;
 				transform.localPosition = originalPos;

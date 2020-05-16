@@ -11,7 +11,10 @@ public class TriggerExplosionObstacle : MonoBehaviour
 	public void Explode() {
 		for(int i = 0; i < rbs.Count; i++) {
 			rbs[i].isKinematic = false;
-			rbs[i].AddExplosionForce(GameManager.Instance.explosionPower, explosionPosition.position, GameManager.Instance.explosionRadius, GameManager.Instance.explosionUpPower, ForceMode.Impulse);
+			float explosionPower = BMCore.Settings.cohort.gameplay.explosionPower;
+			float explosionRadius = BMCore.Settings.cohort.gameplay.explosionRadius;
+			float explosionUpPower = BMCore.Settings.cohort.gameplay.explosionUpPower;
+			rbs[i].AddExplosionForce(explosionPower, explosionPosition.position, explosionRadius, explosionUpPower, ForceMode.Impulse);
 		}
 		for(int i = 0; i < triggers.Count; i++) {
 			Destroy(triggers[i].gameObject);

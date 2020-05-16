@@ -17,6 +17,12 @@ public class BitMindEditor : MonoBehaviour
 		Selection.activeObject = settings;
 	}
 
+	[MenuItem("BitMind/Settings/Cohorts")]
+	public static void SelectCohortSettings() {
+		BMCohort settings = Resources.Load<BMCohort>("Settings/BMCohort");
+		Selection.activeObject = settings;
+	}
+
 	[MenuItem("BitMind/Settings/LevelsSettings")]
 	public static void SelectLevelsSettings() {
 		BMLevels settings = Resources.Load<BMLevels>("Settings/BMLevels");

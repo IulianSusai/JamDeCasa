@@ -5,11 +5,23 @@ using UnityEngine;
 public class SavedData
 {
 
+	private const string COHORT_NAME_KEY = "CohortName";
 	private const string UNLOCKED_LEVEL_KEY = "UnlockedLevel";
 	private const string CURRENT_STARTS_KEY = "CurrentStars";
 
+	private string cohortName;
 	private int unlockedLevel;
 	private int currentStars;
+
+	public string CohortName {
+		set {
+			cohortName = value;
+			PlayerPrefs.SetString(COHORT_NAME_KEY, cohortName);
+		}
+		get {
+			return cohortName;
+		}
+	}
 
 	public int UnlockedLevel {
 		set {
@@ -34,6 +46,7 @@ public class SavedData
 
 
 	public void Load() {
+		cohortName = GetSafeString(COHORT_NAME_KEY);
 		unlockedLevel = GetSafeInt(UNLOCKED_LEVEL_KEY);
 		currentStars = GetSafeInt(CURRENT_STARTS_KEY);
 	}

@@ -17,14 +17,14 @@ MonoBehaviour:
     core:
       isAvailable: 1
     gameplay:
-      levelMaxTime: 0
-      levelSpeedUpMultiplier: 0
-      timeObjectPushForce: 0
-      winPageDelay: 0
-      gameOverPageDelay: 0
-      shakeDuration: 0
-      dieShakeAmount: 0
-      dieDecreaseFactor: 0
-      explosionPower: 0
-      explosionUpPower: 0
-      explosionRadius: 0
+      levelMaxTime: 300
+      levelSpeedUpMultiplier: 15
+      timeObjectPushForce: 10
+      winPageDelay: 1
+      gameOverPageDelay: 1
+      shakeDuration: 0.2
+      dieShakeAmount: 0.7
+      dieDecreaseFactor: 1
+      explosionPower: 10
+      explosionUpPower: 1
+      explosionRadius: 5

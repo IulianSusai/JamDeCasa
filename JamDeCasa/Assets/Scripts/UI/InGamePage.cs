@@ -45,14 +45,10 @@ public class InGamePage : MenuPage
 		//UIManager.Instance.SetJoystickActive(false);
 	}
 
-
 	private void Update() {
 		if(PlayerController.Instance.state == PlayerState.Playing) {
-			TimeSpan timeSpan = TimeSpan.FromSeconds(GameManager.Instance.currentLevel.LevelTime);
+			TimeSpan timeSpan = TimeSpan.FromSeconds(GameManager.Instance.levelManager.currentLevel.LevelTime);
 			levelTime.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
 		}
 	}
-
-
-
 }

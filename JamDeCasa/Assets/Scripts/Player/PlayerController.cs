@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
 			Destroy(ch.gameObject);
 		}
 		ch = Instantiate(chPrefab, transform);
-		ch.transform.position = GameManager.Instance.currentLevel.playerStartPosition;
-		ch.transform.eulerAngles = GameManager.Instance.currentLevel.playerStartRotation;
+		ch.transform.position = GameManager.Instance.levelManager.currentLevel.playerStartPosition;
+		ch.transform.eulerAngles = GameManager.Instance.levelManager.currentLevel.playerStartRotation;
 		ch.gameObject.SetActive(true);
 		ch.SetTimeObject(Instantiate(timeObjectPrefab));
 		state = PlayerState.Waiting;
@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void OnPlayerDie(GameObject _timeObj) {
-		ch.transform.position = GameManager.Instance.currentLevel.playerStartPosition;
-		ch.transform.eulerAngles = GameManager.Instance.currentLevel.playerStartRotation;
+		ch.transform.position = GameManager.Instance.levelManager.currentLevel.playerStartPosition;
+		ch.transform.eulerAngles = GameManager.Instance.levelManager.currentLevel.playerStartRotation;
 	}
 
 	private void OnDestroy() {

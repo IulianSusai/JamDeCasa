@@ -11,8 +11,10 @@ public class BMSettings : ScriptableObject
 	public float gameSpeed;
 
 	[HideInInspector] public BMCohortData cohort { private set; get; }
+	[HideInInspector] public LevelData levelData { private set; get; }
 
 	public void SetCohort(BMCohortData _cohort) {
 		cohort = _cohort;
+		levelData = BMCore.Levels.GetLevelData(cohort.core.levelSettingsName);
 	}
 }

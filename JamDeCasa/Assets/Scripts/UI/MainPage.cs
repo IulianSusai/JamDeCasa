@@ -11,7 +11,7 @@ public class MainPage : MenuPage
 	public override void OpenPage() {
 		base.OpenPage();
 		GameManager.Instance.LoadLevel();
-		TimeSpan timeSpan = TimeSpan.FromSeconds(GameManager.Instance.currentLevel.LevelTime);
+		TimeSpan timeSpan = TimeSpan.FromSeconds(GameManager.Instance.levelManager.currentLevel.LevelTime);
 		time.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
 		//UIManager.Instance.SetJoystickActive(true);
 	}

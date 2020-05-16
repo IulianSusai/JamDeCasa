@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { private set; get; }
 
+	public LevelManager levelManager { private set; get; }
+
 	private void Awake() {
 		if (Instance == null) {
 			Instance = this;
@@ -16,20 +18,9 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	[Header("Levels")]
-	[SerializeField] private List<Level> levels;
-	public Level currentLevel { private set; get; }
-	public int currentLevelIndex { private set; get; }
-
-	public int uiCurrentLevel {
-		get {
-			return currentLevelIndex % levels.Count;
-		}
-	}
-
 	private void Start() {
 		SetBMCohort();
-		currentLevelIndex = 0;
+		SetReferences();
 		UIManager.Instance.mainPage.OpenPage();
 	}
 
@@ -48,6 +39,10 @@ public class GameManager : MonoBehaviour
 		BMCore.Settings.SetCohort(cohort);
 	}
 
+	public void SetReferences() {
+		levelManager = new LevelManager();
+	}
+
 	private void RegisterEvents() {
 		ActionsController.Instance.onLevelWin += OnLevelWin;
 		ActionsController.Instance.onLevelDie += OnLevelDie;
@@ -55,22 +50,16 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void LoadLevel() {
-		if(currentLevel != null) {
-			Destroy(currentLevel.gameObject);
-		}
-		currentLevel = Instantiate(levels[currentLevelIndex % levels.Count]);
-		ActionsController.Instance.SendOnLevelLoaded();
+		levelManager.LoadLevel();
 	}
 
 	public void LoadNextLevel() {
-		currentLevelIndex++;
-		LoadLevel();
+		levelManager.LoadNextLevel();
 	}
 
 
 	public void LoadPrevLevel() {
-		currentLevelIndex = Mathf.Max(0, currentLevelIndex - 1);
-		LoadLevel();
+		levelManager.LoadPrevLevel();
 	}
 
 	private void OnLevelStart() {
@@ -78,12 +67,11 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void OnLevelWin() {
-		currentLevelIndex++;
+		levelManager.SetupNextLevel();
 		Invoke("AfterLevelWinDelay", BMCore.Settings.cohort.gameplay.winPageDelay);
 	}
 
 	private void OnLevelDie() {
-		currentLevelIndex = Mathf.Max(0, currentLevelIndex - 1);
 		Invoke("AfterLevelDieDelay", BMCore.Settings.cohort.gameplay.gameOverPageDelay);
 	}
 

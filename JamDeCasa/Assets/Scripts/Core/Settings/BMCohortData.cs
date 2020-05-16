@@ -15,6 +15,7 @@ public class BMCohortData
 public class CohortCore
 {
 	public bool isAvailable;
+	[BMLevel] public string levelSettingsName;
 }
 
 [Serializable]

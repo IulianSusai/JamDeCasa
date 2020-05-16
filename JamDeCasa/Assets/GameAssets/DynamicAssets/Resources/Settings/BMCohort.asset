@@ -16,6 +16,7 @@ MonoBehaviour:
   - cohortName: c1
     core:
       isAvailable: 1
+      levelSettingsName: LS1
     gameplay:
       levelMaxTime: 300
       levelSpeedUpMultiplier: 15

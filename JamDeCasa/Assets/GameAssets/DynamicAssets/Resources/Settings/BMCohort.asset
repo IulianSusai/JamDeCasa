@@ -29,3 +29,12 @@ MonoBehaviour:
       explosionPower: 10
       explosionUpPower: 1
       explosionRadius: 5
+      starConditions:
+      - maxDies: 0
+        stars: 3
+      - maxDies: 2
+        stars: 2
+      - maxDies: 5
+        stars: 1
+      - maxDies: 9999999
+        stars: 0

@@ -9,7 +9,14 @@ public class LevelManager
 			return (levelIndex + 1).ToString();
 		}
 	}
-	public int levelIndex { private set; get; }
+	public int levelIndex {
+		private set {
+			GameManager.Instance.savedData.LastPlayedLevel = value;
+		}
+		get {
+			return GameManager.Instance.savedData.LastPlayedLevel;
+		}
+	}
 	public Level currentLevel { private set; get; }
 
 	public void LoadLevel() {

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { private set; get; }
 
 	public LevelManager levelManager { private set; get; }
+	public SavedData savedData { private set; get; }
 
 	private void Awake() {
 		if (Instance == null) {
@@ -19,8 +20,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void Start() {
-		SetBMCohort();
 		SetReferences();
+		SetBMCohort();
 		UIManager.Instance.mainPage.OpenPage();
 	}
 
@@ -33,13 +34,14 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void SetBMCohort() {
-		bool hasEmptyCohort = string.IsNullOrEmpty(UserData.Instance.savedData.CohortName);
-		BMCohortData cohort = hasEmptyCohort ? BMCore.Cohorts.GetRandomAvailableCohort() : BMCore.Cohorts.GetCohort(UserData.Instance.savedData.CohortName);
-		UserData.Instance.savedData.CohortName = cohort.cohortName;
+		bool hasEmptyCohort = string.IsNullOrEmpty(savedData.CohortName);
+		BMCohortData cohort = hasEmptyCohort ? BMCore.Cohorts.GetRandomAvailableCohort() : BMCore.Cohorts.GetCohort(savedData.CohortName);
+		savedData.CohortName = cohort.cohortName;
 		BMCore.Settings.SetCohort(cohort);
 	}
 
 	public void SetReferences() {
+		savedData = new SavedData();
 		levelManager = new LevelManager();
 	}
 
@@ -87,13 +89,12 @@ public class GameManager : MonoBehaviour
 	private void CheckLevelStars() {
 		int currentLevel = levelManager.levelIndex;
 		int currentStars = ConvertDiesToStars();
-		int prevStars = UserData.Instance.savedData.GetLevelStars(currentLevel);
+		int prevStars = savedData.GetLevelStars(currentLevel);
 		if(currentStars > prevStars) {
-			UserData.Instance.savedData.SetLevelStars(currentLevel, currentStars);
+			savedData.SetLevelStars(currentLevel, currentStars);
 			int diff = currentStars - prevStars;
-			UserData.Instance.savedData.CurrentStars += diff;
+			savedData.CurrentStars += diff;
 		}
-		Debug.LogError("Stars: " + UserData.Instance.savedData.CurrentStars);
 	}
 
 	private int ConvertDiesToStars() {

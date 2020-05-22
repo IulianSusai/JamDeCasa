@@ -20,7 +20,7 @@ public class LevelData
 
 	private void CreateUnlockedLevelsList() {
 		unlockedLevels = new List<Level>();
-		int currentStars = UserData.Instance.savedData.CurrentStars;
+		int currentStars = GameManager.Instance.savedData.CurrentStars;
 		foreach(LevelChapter c in chapters) {
 			if(currentStars >= c.unlockStars) {
 				unlockedLevels.AddRange(c.chapterLevels);

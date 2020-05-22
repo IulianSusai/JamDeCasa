@@ -6,12 +6,18 @@ public class SavedData
 {
 
 	private const string COHORT_NAME_KEY = "CohortName";
-	private const string UNLOCKED_LEVEL_KEY = "UnlockedLevel";
 	private const string CURRENT_STARTS_KEY = "CurrentStars";
+	private const string UNLOCKED_LEVEL_KEY = "UnlockedLevel";
+	private const string LAST_LOADED_LEVEL_KEY = "LastLoadedLevel";
 
 	private string cohortName;
-	private int unlockedLevel;
 	private int currentStars;
+	private int unlockedLevel;
+	private int lastLoadedLevel;
+
+	public SavedData() {
+		Load();
+	}
 
 	public string CohortName {
 		set {
@@ -34,6 +40,16 @@ public class SavedData
 		}
 	}
 
+	public int LastPlayedLevel {
+		set {
+			lastLoadedLevel = value;
+			PlayerPrefs.SetInt(LAST_LOADED_LEVEL_KEY, lastLoadedLevel);
+		}
+		get {
+			return lastLoadedLevel;
+		}
+	}
+
 	public int CurrentStars {
 		set {
 			currentStars = value;
@@ -53,12 +69,12 @@ public class SavedData
 	}
 
 
-	public void Load() {
+	private void Load() {
 		cohortName = GetSafeString(COHORT_NAME_KEY);
-		unlockedLevel = GetSafeInt(UNLOCKED_LEVEL_KEY);
 		currentStars = GetSafeInt(CURRENT_STARTS_KEY);
+		unlockedLevel = GetSafeInt(UNLOCKED_LEVEL_KEY);
+		lastLoadedLevel = GetSafeInt(LAST_LOADED_LEVEL_KEY);
 	}
-
 
 	private float GetSafeFloat(string _key) {
 		if (PlayerPrefs.HasKey(_key)) {

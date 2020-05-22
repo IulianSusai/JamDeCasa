@@ -5,9 +5,6 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
 	[SerializeField] private Transform timeObjectContainer;
-	[SerializeField] private float moveSpeed;
-	[SerializeField] private float turnSmoothTime = 0.2f;
-	[SerializeField] private float speedSmoothTime = 0.1f;
 
 	private float speedSmoothVelocity;
 	private float turnSmoothVelocity;
@@ -66,14 +63,14 @@ public class Character : MonoBehaviour
 
 			if (inputDir != Vector3.zero) {
 				float targetRotation = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg;
-				transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
+				transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, BMCore.Settings.cohort.player.turnSmoothTime);
 			}
 
-			float targetSpeed = moveSpeed * inputDir.magnitude;
-			currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+			float targetSpeed = BMCore.Settings.cohort.player.moveSpeed * inputDir.magnitude;
+			currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, BMCore.Settings.cohort.player.speedSmoothTime);
 
 			float animationSpeedPercent = inputDir.magnitude;
-			animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+			animator.SetFloat("speedPercent", animationSpeedPercent, BMCore.Settings.cohort.player.speedSmoothTime, Time.deltaTime);
 		}
 	}
 

@@ -9,6 +9,7 @@ public class BMCohortData
 	public string cohortName;
 	public CohortCore core;
 	public CohortGameplay gameplay;
+	public CohortPlayerInfo player;
 }
 
 [Serializable]
@@ -35,6 +36,14 @@ public class CohortGameplay
 	public float explosionUpPower;
 	public float explosionRadius;
 	public List<StarConditions> starConditions;
+}
+
+[Serializable]
+public class CohortPlayerInfo
+{
+	public float moveSpeed;
+	public float turnSmoothTime = 0.2f;
+	public float speedSmoothTime = 0.1f;
 }
 
 [Serializable]

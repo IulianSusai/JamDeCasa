@@ -38,3 +38,7 @@ MonoBehaviour:
         stars: 1
       - maxDies: 9999999
         stars: 0
+    player:
+      moveSpeed: 10
+      turnSmoothTime: 0.1
+      speedSmoothTime: 0.1

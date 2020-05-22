@@ -18,14 +18,4 @@ public class UIManager : MonoBehaviour
 	public MenuPage inGamePage;
 	public MenuPage winPage;
 	public MenuPage gameOverPage;
-
-	public Joystick joystick;
-	
-	public void SetJoystickActive(bool _active) {
-		joystick.gameObject.SetActive(_active);
-		if (!_active) {
-			joystick.ResetJoystick();
-		}
-	}
-
 }

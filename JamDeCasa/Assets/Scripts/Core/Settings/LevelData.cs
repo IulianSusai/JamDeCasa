@@ -15,6 +15,9 @@ public class LevelData
 		if(unlockedLevels == null || unlockedLevels.Count == 0) {
 			CreateUnlockedLevelsList();
 		}
+		if(_index >= unlockedLevels.Count) {
+			return unlockedLevels[unlockedLevels.Count - 1];
+		}
 		return unlockedLevels[_index];
 	}
 

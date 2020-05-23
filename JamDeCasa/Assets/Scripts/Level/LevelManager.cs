@@ -39,9 +39,4 @@ public class LevelManager
 		levelIndex = Mathf.Max(0, levelIndex - 1);
 		LoadLevel();
 	}
-
-	public void SetupNextLevel() {
-		levelIndex++;
-	}
-
 }

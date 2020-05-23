@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
 	private void OnLevelWin() {
 		CheckLevelStars();
-		levelManager.SetupNextLevel();
 		Invoke("AfterLevelWinDelay", BMCore.Settings.cohort.gameplay.winPageDelay);
 	}
 

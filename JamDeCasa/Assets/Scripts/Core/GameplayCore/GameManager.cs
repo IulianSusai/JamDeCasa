@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 	private void Start() {
 		SetReferences();
 		SetBMCohort();
-		UIManager.Instance.mainPage.OpenPage();
+		UIManager.Instance.MainPage.OpenPage();
 	}
 
 	private void SetBMSettings() {
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void OnLevelStart() {
-		UIManager.Instance.inGamePage.OpenPage();
+		UIManager.Instance.InGamePage.OpenPage();
 	}
 
 	private void OnLevelWin() {
@@ -79,11 +79,11 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void AfterLevelWinDelay() {
-		UIManager.Instance.winPage.OpenPage();
+		UIManager.Instance.WinPage.OpenPage();
 	}
 
 	private void AfterLevelDieDelay() {
-		UIManager.Instance.gameOverPage.OpenPage();
+		UIManager.Instance.GameOverPage.OpenPage();
 	}
 
 	private void CheckLevelStars() {

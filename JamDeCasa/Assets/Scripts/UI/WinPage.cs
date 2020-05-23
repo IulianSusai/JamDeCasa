@@ -16,7 +16,7 @@ public class WinPage : MenuPage
 
 	private void Update() {
 		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
-			UIManager.Instance.mainPage.OpenPage();
+			UIManager.Instance.MainPage.OpenPage();
 		}
 	}
 
